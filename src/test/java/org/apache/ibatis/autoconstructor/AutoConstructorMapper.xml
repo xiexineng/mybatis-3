@@ -21,4 +21,17 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.apache.ibatis.autoconstructor.AutoConstructorMapper">
+  <resultMap id="PrimitiveSubjectMap" type="org.apache.ibatis.autoconstructor.PrimitiveSubject">
+    <id column="id" property="id"/>
+    <result column="name" property="name" />
+    <result column="age" property="age"/>
+    <result column="height" property="height"/>
+    <result column="weight" property="weight" />
+    <result column="active" property="active" />
+    <result column="dt" property="dt" />
+  </resultMap>
+
+  <select id="getSubject" parameterType="int" resultMap="PrimitiveSubjectMap">
+    select * from subject where id = #{id}
+  </select>
 </mapper>
