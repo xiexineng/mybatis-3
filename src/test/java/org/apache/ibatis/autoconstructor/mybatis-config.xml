@@ -42,6 +42,7 @@
     <setting name="mapUnderscoreToCamelCase" value="false"/>
     <setting name="localCacheScope" value="SESSION"/>
     <setting name="jdbcTypeForNull" value="OTHER"/>
+    <setting name="logImpl" value="LOG4J"/>
     <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
   </settings>
 
