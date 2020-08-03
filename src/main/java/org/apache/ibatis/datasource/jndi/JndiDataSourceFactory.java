@@ -30,9 +30,21 @@ import org.apache.ibatis.datasource.DataSourceFactory;
  * @author Clinton Begin
  */
 public class JndiDataSourceFactory implements DataSourceFactory {
-
+  /**
+   * 这个属性用来在 InitialContext 中寻找上下文（即，initialContext.lookup(initial_context)）。
+   * 这是个可选属性，如果忽略，那么 data_source 属性将会直接从 InitialContext 中寻找。
+   */
   public static final String INITIAL_CONTEXT = "initial_context";
+  /**
+   * 这是引用数据源实例位置的上下文的路径。提供了 initial_context 配置时会在其返回的上下文中进行查找，
+   * 没有提供时则直接在 InitialContext 中查找。
+   */
   public static final String DATA_SOURCE = "data_source";
+  /**
+   * 和其他数据源配置类似，可以通过添加前缀“env.”直接把属性传递给初始上下文。比如：
+   * env.encoding=UTF8
+   * 这就会在初始上下文（InitialContext）实例化时往它的构造方法传递值为 UTF8 的 encoding 属性。
+   */
   public static final String ENV_PREFIX = "env.";
 
   private DataSource dataSource;
