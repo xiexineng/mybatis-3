@@ -154,6 +154,7 @@ public class XMLConfigBuilder extends BaseBuilder {
 
   private void loadCustomLogImpl(Properties props) {
     Class<? extends Log> logImpl = resolveClass(props.getProperty("logImpl"));
+    // 设置自定义日志实现类
     configuration.setLogImpl(logImpl);
   }
 

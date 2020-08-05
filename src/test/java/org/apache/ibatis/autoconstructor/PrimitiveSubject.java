@@ -15,9 +15,10 @@
  */
 package org.apache.ibatis.autoconstructor;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class PrimitiveSubject {
+public class PrimitiveSubject implements Serializable {
   private final int id;
   private final String name;
   private final int age;

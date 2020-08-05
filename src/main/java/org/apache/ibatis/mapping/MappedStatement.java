@@ -78,6 +78,7 @@ public final class MappedStatement {
       if (configuration.getLogPrefix() != null) {
         logId = configuration.getLogPrefix() + id;
       }
+      // 获取日志实现
       mappedStatement.statementLog = LogFactory.getLog(logId);
       mappedStatement.lang = configuration.getDefaultScriptingLanguageInstance();
     }

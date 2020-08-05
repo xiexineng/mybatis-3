@@ -48,12 +48,32 @@ class AutoConstructorTest {
         "org/apache/ibatis/autoconstructor/CreateDB.sql");
   }
 
+  /**
+   * 测试执行流程
+   */
   @Test
   void fullyPopulatedSubject() {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       final AutoConstructorMapper mapper = sqlSession.getMapper(AutoConstructorMapper.class);
       final Object subject = mapper.getSubject(1);
       assertNotNull(subject);
+    }
+  }
+
+  /**
+   * 测试二级缓存
+   */
+  @Test
+  void testSecondCache() {
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      final AutoConstructorMapper mapper = sqlSession.getMapper(AutoConstructorMapper.class);
+      final Object subject = mapper.getSubject(1);
+      System.out.println(subject);
+    }
+    try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+      final AutoConstructorMapper mapper = sqlSession.getMapper(AutoConstructorMapper.class);
+      final Object subject = mapper.getSubject(1);
+      System.out.println(subject);
     }
   }
 

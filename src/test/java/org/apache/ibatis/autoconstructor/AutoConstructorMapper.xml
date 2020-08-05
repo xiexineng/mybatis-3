@@ -31,7 +31,11 @@
     <result column="dt" property="dt" />
   </resultMap>
 
+  <cache eviction="LRU">
+    <property name="testName" value="testValue"/>
+  </cache>
+
   <select id="getSubject" parameterType="int" resultMap="PrimitiveSubjectMap">
-    select * from subject where id = #{id}
+    select * from subject where id = #{param1}
   </select>
 </mapper>
